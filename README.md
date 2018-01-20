@@ -16,7 +16,7 @@ npm i yog2 -g
 ```
 1. fork my git,download to local
 2. modify file 'base/app.js' line 16, confirm a free port 
-3. modify markdown root dir '/base/conf/plugins/scan.js'
+3. modify markdown root dir '/base/conf/plugins/filescan.js'
 4. modify mysql conf '/base/conf/plugins/knex.js'
 5. import the db structure(wiki.mysql) to your mysql
 6. start runtime:
