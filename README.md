@@ -20,6 +20,7 @@ npm i yog2 -g
 6. start runtime:
 ```
 cd base
+npm i	## first time，install the dependencies
 yog2 run
 ```
 7. deploy service code:
