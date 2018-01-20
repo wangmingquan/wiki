@@ -30,7 +30,7 @@ yog2 run
 cd home
 npm run dev
 ```
-8. preview wiki，for example: [http://127.0.0.1:8081](http://127.0.0.1:8081)
+4. preview wiki，for example: [http://127.0.0.1:8081](http://127.0.0.1:8081)
 
 ## contact me
 write issue!write issue!!write issue!!!
