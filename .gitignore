@@ -1,0 +1,8 @@
+/base/app/*
+/base/node_modules/*
+/base/views/*
+/base/static/*
+/base/log/*
+/base/conf/fis/*
+.DS_Store
+*/.DS_Store

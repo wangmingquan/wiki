@@ -1,0 +1,22 @@
+{
+  "name": "wiki",
+  "version": "1.0.0",
+  "description": "a wiki system,powered by node.js  can sacn markdown dir, and can be search with mysql",
+  "main": "app.js",
+  "scripts": {
+    "test": "no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangmingquan/wiki.git"
+  },
+  "keywords": [
+    "wiki"
+  ],
+  "author": "wangmingquan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangmingquan/wiki/issues"
+  },
+  "homepage": "https://github.com/wangmingquan/wiki#readme"
+}
