@@ -14,19 +14,16 @@ debug this app need to install yog2 and fis
 npm i fis -g
 npm i yog2 -g
 ```
-1. fork my git,download to local
-2. modify file 'base/app.js' line 16, confirm a free port 
-3. modify markdown root dir '/base/conf/plugins/filescan.js'
-4. modify mysql conf '/base/conf/plugins/knex.js'
-5. import the db structure(wiki.mysql) to your mysql
-6. start runtime:
+1. modify markdown root dir '/base/conf/plugins/filescan.js'
+2. modify mysql conf '/base/conf/plugins/knex.js'
+3. start runtime:
 ```
+# terminal 1
 cd base
 npm i	## first time，install the dependencies
 yog2 run
-```
-7. deploy service code:
-```
+
+# terminal 2
 cd home
 npm run dev
 ```

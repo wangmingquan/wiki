@@ -47,7 +47,6 @@ module.exports.filescan = ['knex', (app, conf) => {
   }
 
   function deleteFile (fullpath) {
-    console.log(fullpath);
     yog.knex('file').delete().where({fullpath}).then(rel => {
       log.success('file ' +fullpath + ' deleted success')
     }, err => {
@@ -59,11 +58,13 @@ module.exports.filescan = ['knex', (app, conf) => {
     var path = options.path;
     var dirname = options.dirname;
     var fullpath = path + dirname;
-
+    var now = new Date();
     var condition = {
       dirname,
       path,
-      fullpath
+      fullpath,
+      created_at: now,
+      updated_at: now
     };
     yog.knex('dir').select('_id').where({fullpath}).then(rel => {
       if (!rel.length) {
@@ -82,11 +83,14 @@ module.exports.filescan = ['knex', (app, conf) => {
     var fullpath = path + filename;
     var currentPath = options.currentPath;
     var title = filename;
+    var now = new Date();
+
     var condition = {
       filename,
       path,
       fullpath,
-      title
+      title,
+      updated_at: now
     };
     var syncForDb = () => {
       yog.knex('file').select('_id').where({fullpath}).then(rel => {
@@ -98,7 +102,7 @@ module.exports.filescan = ['knex', (app, conf) => {
           })
         }
         else {
-          condition.created_time = new Date();
+          condition.created_at = now;
           yog.knex('file').insert(condition).then(rel => {
             log.success(fullpath + ' inserted success')
           }, err => {
