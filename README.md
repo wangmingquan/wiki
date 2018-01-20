@@ -1,6 +1,9 @@
 # wiki
 a wiki system
 
+史上最轻量级的WIKI系统，能读，能搜，足矣。
+所以，告诉我你的**markdown文件夹**，给我**一个数据库**，不到一分钟还给你一个清清爽爽、阅读体验极佳的wiki系统。
+
 ## feature
  
 * **watch folder**, auto scan the actions: addfile,adddir,changefile,deletefile,delete dir
@@ -28,4 +31,7 @@ cd home
 npm run dev
 ```
 8. preview wiki，for example: [http://127.0.0.1:8081](http://127.0.0.1:8081)
+
+## contact me
+write issue!write issue!!write issue!!!
 
