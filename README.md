@@ -6,6 +6,8 @@ a wiki system
 * **watch folder**, auto scan the actions: addfile,adddir,changefile,deletefile,delete dir
 * **easy read**, easy to read, easy to index,easy to search
 
+![](./screen.png)
+
 ## how to debug
 debug this app need to install yog2 and fis
 ```

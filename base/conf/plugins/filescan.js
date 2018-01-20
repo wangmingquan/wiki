@@ -1,3 +1,3 @@
 module.exports.filescan = {
-  rootPath: '../test'
+  rootPath: '/Users/wangmingquan/project/private/wiki/test'
 };
