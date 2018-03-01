@@ -42,6 +42,9 @@ module.exports.getData = function (req) {
         if (data.content.content) {
           data.content.html = marked(data.content.content);
         }
+        if (data.content.title) {
+          data.title = data.content.title;
+        }
         resolve(data);
       })
     });
