@@ -14,6 +14,7 @@
 
     {% body %}
         <div id="wrapper">
+            <a id="top" name="top"></a>
             <header>
                 <div class="headermain">
                     <span class="logo">Here-Wiki</span>
@@ -31,7 +32,19 @@
                     {% endblock %}
                 </div>
             </div>
+            <a class="top" id="topbtn" href="#"></a>
         </div>
         {% require "home:static/js/zepto.js" %}
+        {% script %}
+            var checkTopBtn = () => {
+                 if (window.scrollY > 200) {
+                    $('#topbtn').show(); 
+                } else {
+                    $('#topbtn').hide(); 
+                }
+            };
+            $(window).scroll(checkTopBtn);
+            checkTopBtn();
+        {% endscript %}
     {% endbody %}
 {% endhtml %}
