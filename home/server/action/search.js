@@ -1,7 +1,9 @@
 module.exports.get = (req, res, next) => {
   var word = req.query.word;
+  var path = req.query.path || '';
   var data = {
-    word
+    word,
+    path
   };
   if (!word) {
     res.json({status: -1, message: '缺少关键字'});
@@ -15,9 +17,11 @@ module.exports.get = (req, res, next) => {
       if (index == -1) {word = word.toLocaleUpperCase(); index = content.indexOf(word)}
       if (index < 20) {index = 20};
       var substr = content.substr(index - 20, 40);
+      const fullpath = rel[i].fullpath;
       list.push({
-        fullpath: rel[i].fullpath,
-        des: substr.replace(word, `<b>${word}</b>`)
+        fullpath: fullpath,
+        des: substr.replace(word, `<b>${word}</b>`),
+        isInPath: fullpath.indexOf(path) === 0 ? 'isInPath' : 'notInPath'
       })
     }
     data.list = list;

@@ -20,6 +20,11 @@
                     <span class="logo">Here-Wiki</span>
                     <div class="search">
                         <form action="/___search" method="get">
+                            {% if content && content.path %}
+                                <input type="hidden" name="path" value="{{ content.path }}" >
+                            {% elseif path %}
+                                <input type="hidden" name="path" value="{{ path }}">
+                            {% endif %}
                             <input type="text" id="word" name="word" />
                             <input type="submit" id="search" value="" />
                         </form>
