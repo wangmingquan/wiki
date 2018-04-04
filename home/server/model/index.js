@@ -55,9 +55,34 @@ module.exports.getData = function (req) {
         yog.knex('file').select('fullpath', 'title', 'filename').where({path}),
         yog.knex('dir').select().where({path})
       ]).then(rel => {
-        data.dirs = rel[1];
-        data.files = rel[0];
-        resolve(data);
+        let hasReadMe = false;
+        let readMeFileName = '';
+        const files = rel[0];
+        const dirs = rel[1];
+        data.files = files;
+        data.dirs = dirs;
+        for (var i in files) {
+          if (files[i].filename.toLocaleLowerCase() === 'readme.md') {
+            hasReadMe = true;
+            readMeFileName = files[i].filename;
+          }
+        }
+
+        if (!hasReadMe) {
+          resolve(data);
+        } else {
+          yog.knex('file').select().where({ fullpath: url + readMeFileName }).then(rel => {
+            data.hasReadMe = true;
+            data.readMeFileName = readMeFileName;
+            data.readMe = rel[0];
+            if (data.readMe.content) {
+              data.readMe.html = marked(data.readMe.content);
+            }
+            resolve(data);
+          }, (err) => {
+            resolve(data);
+          });
+        }
       }, err => {
         reject(err);
       })

@@ -31,20 +31,35 @@
       {% endif %}
 
       {% if dirs.length %}
-        <p class="title">当前目录包含以下文件夹：</p>
-        <ul class="fir_file_list">
-          {% for item in dirs %}
-            <li class="dir"><a href="{{item.fullpath}}/">{{item.dirname}}</a></li>
-          {% endfor %}
-        </ul>
+        <div class="module_box">
+          <p class="title">当前目录包含以下文件夹：</p>
+          <ul class="fir_file_list">
+            {% for item in dirs %}
+              <li class="dir"><a href="{{item.fullpath}}/">{{item.dirname}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
       {% endif %}
       {% if files.length %}
-        <p class="title">当前目录包含以下文件：</p>
-        <ul class="fir_file_list">
-          {% for item in files %}
-            <li class="file"><a href="{{item.fullpath}}">{{item.filename || item.title}}</a></li>
-          {% endfor %}
-        </ul>
+        <div class="module_box">
+          <p class="title">当前目录包含以下文件：</p>
+          <ul class="fir_file_list">
+            {% for item in files %}
+              <li class="file">
+                <a href="{{item.fullpath}}">{{item.filename || item.title}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if hasReadMe && readMe.html %}
+        <div class="module_box">
+          <p class="title">{{readMeFileName}}</p>
+          <div class="article">
+            {% autoescape false %} {{readMe.html}} {% endautoescape %}
+          </div>
+        </div>
       {% endif %}
     {% endif %}
   </div>

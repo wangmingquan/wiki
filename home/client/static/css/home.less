@@ -48,18 +48,23 @@ header{
   margin: 0 auto;
 }
 .fir_file_list{
-  margin-bottom: 20px;
   li{
-    padding: 5px 0;
+    padding: 5px 10px;
     line-height: 24px;
-    padding-left: 20px;
+    padding-left: 30px;
+    border-bottom: #eaecef 1px solid;
+    &:last-of-type{
+      border-bottom: none;
+    }
     &.dir {
       background: url(../images/folder.png) no-repeat left;
       background-size: 16px 16px;
+      background-position: 10px 8px;
     }
     &.file {
       background: url(../images/file.png) no-repeat left;
       background-size: 16px 16px;
+      background-position: 10px 8px;
     }
     a{
       text-decoration: none;
@@ -170,5 +175,18 @@ header{
   .info{
     color: #999;
     padding-bottom: 10px;
+  }
+}
+.module_box{
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  .title{
+    background: #f6f8fa;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+  }
+  .article{
+    padding: 10px;
   }
 }
