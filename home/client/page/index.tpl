@@ -13,11 +13,28 @@
     </div>
     {% if isFile %}
       <h1 class="pagetitle">{{ content.title }}</h1>
+
+      <div class="file_time_info">
+        <b>创建时间：</b>
+        <span>{{content.created_at.toLocaleString()}}</span>
+
+        <b>修改时间：</b>
+        <span>{{content.updated_at.toLocaleString()}}</span>
+      </div>
       {% if content.html %}
         <div class="article">
           {% autoescape false %}
             {{content.html}}
           {% endautoescape %}
+        </div>
+      {% elseif isHtml(content.filename)  %}
+        <div class="html_preview">
+          <div class="box">
+            <div class="container">
+              <div class="_blank"></div>
+              <iframe sandbox="" src="{{url}}?preview=1" frameborder="0"></iframe>
+            </div>
+          </div>
         </div>
       {% else %}
         <div class="nopreview">
