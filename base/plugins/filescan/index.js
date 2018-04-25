@@ -5,38 +5,53 @@ var chokidar = require('chokidar');
 module.exports.filescan = ['knex', (app, conf) => {
   var rootPath = conf.rootPath;
   yog.wiki_root_path = rootPath;
-  chokidar.watch(rootPath, {ignored: /(^|[\/\\])\../}).on('all', (event, path) => {
-    var fullpath = path.replace(rootPath, '');
-    var paths = fullpath.split('/');
-    var filename = paths.pop();
-    var _path = fullpath.replace(filename, '');
-    if (event === 'add' || event === 'change') {
-      // 首次遍历 添加文件 文件变动
-      syncFile({
-        currentPath: path,
-        filename,
-        path: _path
-      });
-    }
-    else if (event === 'addDir'){
-      // 文件夹
-      syncDir({
-        dirname: filename,
-        path: _path
-      });
-    }
-    else if (event === 'unlink') {
-      // 删除文件
-      deleteFile(fullpath);
-    }
-    else if (event === 'unlinkDir') {
-      deleteDir(fullpath);
-      // 删除文件夹
-    }
-    else {
-      console.log(event);
-    }
-  });
+  if (conf.refresh) {
+    Promise.all([
+      yog.knex('dir').delete(),
+      yog.knex('file').delete()
+    ]).then(rel => {
+      listenFile();
+    }, err => {
+      listenFile();
+    });
+  } else {
+    listenFile();
+  }
+  function listenFile (params) {
+    chokidar.watch(rootPath, { ignored: /(^|[\/\\])\../ }).on('all', (event, path) => {
+      var fullpath = path.replace(rootPath, '');
+      var paths = fullpath.split('/');
+      var filename = paths.pop();
+      var _path = fullpath.replace(filename, '');
+      if (event === 'add' || event === 'change') {
+        // 首次遍历 添加文件 文件变动
+        syncFile({
+          currentPath: path,
+          filename,
+          path: _path
+        });
+      }
+      else if (event === 'addDir') {
+        // 文件夹
+        syncDir({
+          dirname: filename,
+          path: _path
+        });
+      }
+      else if (event === 'unlink') {
+        // 删除文件
+        deleteFile(fullpath);
+      }
+      else if (event === 'unlinkDir') {
+        deleteDir(fullpath);
+        // 删除文件夹
+      }
+      else {
+        console.log(event);
+      }
+    });    
+  }
+
 
   function deleteDir (fullpath) {
     yog.knex('dir').delete().where({fullpath}).then(rel => {
