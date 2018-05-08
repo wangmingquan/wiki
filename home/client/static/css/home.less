@@ -12,32 +12,37 @@ header{
     line-height: 60px;
     font-weight: bolder;
     font-size: 32px;
+    color: #67A1FF;
   }
   .search{
     float: right;
-    padding: 15px 0;
+    width:240px;
+    height:40px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+    form {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background:rgba(237,243,252,1);
+    }
     input[type="text"] {
-      height: 30px;
-      line-height: 30px;
-      box-sizing: border-box;
-      width: 150px;
-      border-radius: 5px;
-      border: #409EFF 1px solid;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 8px;
+      border: none;
       display: block;
-      float: left;
-      padding: 0 10px;
+      flex: 1;
+      background: none;
     }
     input[type="submit"] {
-      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
       display: block;
-      width: 60px;
-      height: 30px;
-      float: left;
-      margin-left: 5px;
       border: none;
-      background: url(../images/search.png) no-repeat center #409EFF;
-      background-size: 24px 24px;
-      border-radius: 5px;
+      background: url(../images/icon_search@2x.png) no-repeat center;
+      background-size: 18px 18px;
     }
   }
 }
@@ -47,60 +52,75 @@ header{
   max-width: 1024px;
   margin: 0 auto;
 }
-.fir_file_list{
+.dir_file_list{
   li{
     padding: 5px 10px;
-    line-height: 24px;
-    padding-left: 30px;
-    border-bottom: #eaecef 1px solid;
-    &:last-of-type{
-      border-bottom: none;
+    line-height: 36px;
+    padding-left: 45px;
+    &.dir:nth-child(odd),&.file:nth-child(odd) {
+      background-color:rgba(237,243,252,0.4);
     }
     &.dir {
-      background: url(../images/folder.png) no-repeat left;
-      background-size: 16px 16px;
-      background-position: 10px 8px;
+      background: url(../images/icon_document@2x.png) no-repeat left;
+      background-size: 14px 14px;
+      background-position: 21px 17px;
     }
     &.file {
-      background: url(../images/file.png) no-repeat left;
-      background-size: 16px 16px;
-      background-position: 10px 8px;
+      background: url(../images/icon_file@2x.png) no-repeat left;
+      background-size: 14px 14px;
+      background-position: 21px 17px;
     }
     a{
+      color: #7E94BB;
       text-decoration: none;
     }
   }
 }
 .position{
-  background: #fafafa;
-  border-bottom: #efefef 1px solid;
-  padding: 8px;
+  padding: 8px 0;
   margin-bottom: 10px;
   position: sticky;
   top: 0;
+  color: #7E94BB;
+  font-size: 14px;
   span{
     float: left;
+    font-size: 16px;
+  }
+  a{
+    color: #7E94BB;
+    text-decoration: none;
   }
 }
 .nofiles{
-  padding-top: 340px;
-  background: url(../images/404.png) no-repeat top;
-  background-size: 320px 320px;
+  padding-top: 250px;
+  padding-bottom: 100px;
+  background: url(../images/empty-folder.png) no-repeat top #fff;
+  background-size: 128px 128px;
+  background-position-y: 100px;
   text-align: center;
-  color: #409EFF;
+  color: #B2BFD7;
+  box-shadow: 0px 0px 9px 0px rgba(103,161,255,0.12);
+  border-radius: 4px;
 }
 
 .pagetitle{
-  border-bottom: #ccc 1px solid;
   padding-bottom: 10px;
 }
 .file_time_info{
   line-height: 32px;
   font-size: 12px;
-  color: #999;
+  color: #7E94BB;
   span{
     margin-right: 10px;
   }
+}
+.article_box{
+  background: #fff;
+  box-shadow: 0px 0px 9px 0px rgba(103,161,255,0.12);
+  border-radius: 4px;
+  padding: 20px;
+  color: #3E4F6C;
 }
 .article{
   padding: 8px 0;
@@ -162,12 +182,12 @@ header{
       font-weight: bold;
       text-align: center;
       color: #333;
-      background: #efefef;
+      background:rgba(237,243,252,0.4);
       padding: 10px 0;
-      border: #dedede 1px solid;
+      border: #C4CFE1 1px solid;
     }
     td {
-      border: #dedede 1px solid;
+      border: #C4CFE1 1px solid;
       padding: 5px 8px;
       vertical-align: middle;
       .submit {
@@ -192,13 +212,13 @@ header{
       box-sizing: border-box;
       &>div{
         position: relative;
-        height: 215px;
+        height: 245px;
       }
       iframe{
         flex: 1;
         display: block;
-        border: 1px solid #dfdfdf;
         box-sizing: border-box;
+        background: #fff;
       }
     }
   }
@@ -213,13 +233,15 @@ header{
   }
 }
 .module_box{
-  border: 1px solid #ddd;
   border-radius: 3px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  background: #fff;
+  box-shadow: 0px 0px 9px 0px rgba(103,161,255,0.12);
+  border-radius: 4px; 
   .title{
-    background: #f6f8fa;
-    border-bottom: 1px solid #ddd;
-    padding: 5px 10px;
+    padding: 20px;
+    font-size: 18px;
+    color:rgba(62,79,108,1);
   }
   .article{
     padding: 10px;
