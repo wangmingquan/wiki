@@ -28,6 +28,9 @@
               {{content.html}}
             {% endautoescape %}
           </div>
+          {% script %}
+          new FormatTitle();
+          {% endscript %}
         {% elseif isHtml(content.filename)  %}
           <div class="html_preview">
             <div class="box">

@@ -40,6 +40,7 @@
             <a class="top" id="topbtn" href="#"></a>
         </div>
         {% require "home:static/js/zepto.js" %}
+        {% require "home:static/js/formattitle.js" %}
         {% script %}
             var checkTopBtn = () => {
                  if (window.scrollY > 200) {
