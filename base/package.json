@@ -15,11 +15,12 @@
   "license": "BSD",
   "dependencies": {
     "chokidar": "^2.0.0",
-    "debuglog": "1.0.1",
-    "knex": "^0.14.2",
+    "debuglog": "^1.0.1",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.14.6",
     "log-mini": "^1.0.0",
-    "marked": "^0.3.12",
-    "mysql": "^2.15.0",
-    "yog2-kernel": "1.9.1"
+    "marked": "^0.3.19",
+    "mysql": "^2.16.0",
+    "yog2-kernel": "^1.9.1"
   }
 }
