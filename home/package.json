@@ -6,7 +6,7 @@
   "devDependencies": {},
   "scripts": {
     "dev": "yog2 release -wd debug",
-    "product": "echo \"remote release mode\" && yog2 release -cuompd ./output && scp -r output/* root@192.168.20.69:~/wiki && rm -rf output"
+    "product": "echo \"remote release mode\" && yog2 release -cuompd ./output && scp -r output/* root@123.57.154.237:~/wiki/server/base && rm -rf output"
   },
   "author": "",
   "license": "ISC"

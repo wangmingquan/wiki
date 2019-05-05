@@ -16,7 +16,7 @@ module.exports = function (router) {
           if (err) {
             res.redirect('/___login');
           } else {
-            if (decoded !== 'test') {
+            if (decoded !== 'oneone再出发') {
               res.redirect('/___login');
             } else {
               next();

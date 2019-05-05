@@ -17,7 +17,7 @@ module.exports.post = (req, res, next) => {
     });
     return;
   }
-  if (token !== 'test') {
+  if (token !== 'oneone再出发') {
     res.json({
       status: -1,
       message: '私家花园，游人勿入！'
