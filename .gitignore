@@ -4,5 +4,6 @@
 /base/static/*
 /base/log/*
 /base/conf/fis/*
+/base/package-lock.json
 .DS_Store
 */.DS_Store
